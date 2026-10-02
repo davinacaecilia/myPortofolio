@@ -170,3 +170,15 @@
         display: block;
     }
 }
+
+@media (max-width: 500px) {
+    .navbar {
+        width: 350px;
+        padding: 0 15px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+}

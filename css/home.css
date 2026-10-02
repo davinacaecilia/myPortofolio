@@ -434,6 +434,7 @@
 
     .profile-card {
         width: 100%;
+        transform: rotate(0deg);
         max-width: 330px;
     }
 
