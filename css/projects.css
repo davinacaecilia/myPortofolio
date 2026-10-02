@@ -429,50 +429,27 @@
 
 
 @media (max-width: 500px) {
-
-    .project-tabs {
-        justify-content: flex-start;
-
-        overflow-x: auto;
-
-        flex-wrap: nowrap;
-
-        padding-bottom: 8px;
-
-        scrollbar-width: none;
+    /* Hilangkan layout 3 kolom, jadikan 1 kolom utuh */
+    .project-carousel {
+        grid-template-columns: 1fr;
+        gap: 0;
     }
 
-    .project-tabs::-webkit-scrollbar {
+    /* Sembunyikan tombol panah kiri & kanan */
+    .carousel-button {
         display: none;
     }
 
-    .project-tab {
-        white-space: nowrap;
-    }
-
-    .project-carousel {
-        grid-template-columns: 35px 1fr 35px;
-
-        gap: 6px;
-    }
-
     .project-image {
-        height: 50px;
-    }
-
-    .carousel-button {
-        width: 35px;
-        height: 35px;
-
-        font-size: 16px;
+        height: 220px; /* Opsional: sesuaikan tinggi gambar agar tidak terlalu gepeng */
     }
 
     .project-information {
-        padding: 25px;
+        padding: 20px;
     }
 
     .project-information h3 {
-        font-size: 28px;
+        font-size: 24px;
     }
 
     .project-information > p:not(.project-type) {

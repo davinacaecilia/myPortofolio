@@ -35,9 +35,11 @@ function initProjects() {
     const tabs =
         document.querySelectorAll(".project-tab");
 
+    // Ambil elemen container kartu project untuk area swipe
+    const projectDisplay =
+        document.querySelector(".project-display");
 
     const projectData = {
-
         web: [
             {
                 title: "BookScape",
@@ -116,15 +118,12 @@ function initProjects() {
     let currentCategory = "web";
     let currentProject = 0;
 
-
     function updateProject() {
-
         const projects =
             projectData[currentCategory];
 
         const project =
             projects[currentProject];
-
 
         projectTitle.textContent =
             project.title;
@@ -138,15 +137,12 @@ function initProjects() {
         projectLink.href =
             project.link;
 
-
         projectNumber.textContent =
             String(currentProject + 1)
                 .padStart(2, "0");
 
-
         projectCounter.textContent =
             `${currentProject + 1} / ${projects.length}`;
-
 
         projectTags.innerHTML =
             project.tags
@@ -160,15 +156,12 @@ function initProjects() {
     }
 
     function updateDots() {
-
         carouselDots.innerHTML = "";
 
         const projects =
             projectData[currentCategory];
 
-
         projects.forEach((_, index) => {
-
             const dot =
                 document.createElement("button");
 
@@ -178,30 +171,21 @@ function initProjects() {
                 dot.classList.add("active");
             }
 
-
             dot.addEventListener(
                 "click",
                 () => {
-
                     currentProject = index;
-
                     updateProject();
-
                 }
             );
 
-
             carouselDots.appendChild(dot);
-
         });
-
     }
-
 
     nextButton.addEventListener(
         "click",
         () => {
-
             const projects =
                 projectData[currentCategory];
 
@@ -210,15 +194,12 @@ function initProjects() {
                 % projects.length;
 
             updateProject();
-
         }
     );
-
 
     prevButton.addEventListener(
         "click",
         () => {
-
             const projects =
                 projectData[currentCategory];
 
@@ -227,23 +208,55 @@ function initProjects() {
                 % projects.length;
 
             updateProject();
-
         }
     );
 
+    // --- FITUR SWIPE MOBILE ---
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    if (projectDisplay) {
+        projectDisplay.addEventListener(
+            "touchstart",
+            (e) => {
+                touchStartX = e.changedTouches[0].clientX;
+            },
+            { passive: true }
+        );
+
+        projectDisplay.addEventListener(
+            "touchend",
+            (e) => {
+                touchEndX = e.changedTouches[0].clientX;
+                handleSwipe();
+            },
+            { passive: true }
+        );
+    }
+
+    function handleSwipe() {
+        const swipeDistance = touchStartX - touchEndX;
+        const minSwipeThreshold = 40; // Batas minimal usapan jari (px)
+
+        // Swipe ke Kiri -> Next
+        if (swipeDistance > minSwipeThreshold) {
+            nextButton.click();
+        } 
+        // Swipe ke Kanan -> Prev
+        else if (swipeDistance < -minSwipeThreshold) {
+            prevButton.click();
+        }
+    }
 
     tabs.forEach(tab => {
-
         tab.addEventListener(
             "click",
             () => {
-
                 tabs.forEach(item =>
                     item.classList.remove("active")
                 );
 
                 tab.classList.add("active");
-
 
                 currentCategory =
                     tab.dataset.category;
@@ -251,13 +264,9 @@ function initProjects() {
                 currentProject = 0;
 
                 updateProject();
-
             }
         );
-
     });
 
-
     updateProject();
-
 }
