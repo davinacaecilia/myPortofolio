@@ -174,7 +174,7 @@
 @media (max-width: 500px) {
     .navbar {
         width: 350px;
-        padding: 0 15px;
+        padding: auto;
     }
 
     .logo {
