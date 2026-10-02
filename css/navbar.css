@@ -1,0 +1,172 @@
+.navbar {
+    width: min(1180px, 92%);
+
+    height: 75px;
+
+    position: fixed;
+
+    top: 20px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 100;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 22px;
+
+    background: rgba(255, 250, 247, 0.85);
+
+    border: 1px solid var(--border);
+
+    border-radius: 100px;
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 10px 40px rgba(100, 70, 80, 0.08);
+}
+
+.logo {
+    font-family: var(--font-heading);
+    display: flex;
+    align-items: center;
+
+    font-size: 22px;
+
+    font-weight: 700;
+}
+
+.logo span {
+    color: var(--pink);
+}
+
+.logo img {
+    height: 40px;
+
+    margin-right: 5px;
+}
+
+.nav-links {
+    display: flex;
+
+    gap: 25px;
+}
+
+.nav-links a {
+    position: relative;
+
+    color: var(--brown-light);
+
+    font-size: 13px;
+    font-weight: 600;
+
+    transition: 0.25s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--pink-dark);
+}
+
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+
+    width: 0;
+    height: 2px;
+
+    bottom: -5px;
+    left: 50%;
+
+    background: var(--pink);
+
+    border-radius: 10px;
+
+    transition: 0.25s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%;
+
+    left: 0;
+}
+
+.nav-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.menu-button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: var(--pink-light);
+
+    color: var(--pink-dark);
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.menu-button:hover {
+    transform: rotate(10deg) scale(1.05);
+}
+
+.menu-button {
+    display: none;
+}
+
+@media (max-width: 850px) {
+
+    .navbar {
+        top: 12px;
+    }
+
+    .nav-links {
+        position: absolute;
+
+        top: 65px;
+
+        left: 0;
+        right: 0;
+
+        display: none;
+
+        flex-direction: column;
+
+        padding: 20px;
+
+        background: var(--white);
+
+        border: 1px solid var(--border);
+
+        border-radius: 20px;
+
+        box-shadow: var(--shadow);
+
+        text-align: center;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .menu-button {
+        display: block;
+    }
+}

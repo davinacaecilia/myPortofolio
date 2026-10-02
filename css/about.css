@@ -1,0 +1,156 @@
+.about-grid {
+    display: grid;
+
+    grid-template-columns: 1.2fr 0.8fr;
+
+    gap: 70px;
+
+    align-items: center;
+}
+
+.about-text {
+    color: var(--brown-light);
+
+    font-size: 15px;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+}
+
+.about-text .large-text {
+    color: var(--brown);
+
+    font-family: var(--font-heading);
+
+    font-size: 24px;
+
+    line-height: 1.5;
+}
+
+.about-text strong {
+    color: var(--pink-dark);
+}
+
+.about-facts {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+.fact {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    padding: 15px;
+
+    background: var(--pink-light);
+
+    border-radius: 18px;
+}
+
+.fact > span {
+    font-size: 20px;
+}
+
+.fact strong {
+    font-size: 11px;
+}
+
+.fact p {
+    margin: 0;
+
+    font-size: 10px;
+}
+
+.about-card {
+    position: relative;
+
+    padding: 50px 40px;
+
+    background: var(--lavender-light);
+
+    border-radius: 25px;
+
+    transform: rotate(-3deg);
+
+    box-shadow: var(--shadow);
+}
+
+.note-pin {
+    position: absolute;
+
+    top: -14px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 30px;
+    height: 30px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: var(--pink);
+
+    color: white;
+
+    box-shadow:
+        0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.note-small {
+    color: var(--pink-dark);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+}
+
+.about-card h3 {
+    font-family: var(--font-heading);
+
+    font-size: 25px;
+
+    line-height: 1.5;
+
+    margin: 20px 0;
+}
+
+.note-line {
+    height: 1px;
+
+    background: rgba(100, 80, 100, 0.15);
+
+    margin: 25px 0;
+}
+
+.about-card > p:last-child {
+    color: var(--brown-light);
+
+    font-size: 11px;
+}
+
+@media (max-width: 850px) {
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-facts {
+        grid-template-columns: 1fr;
+    }
+}

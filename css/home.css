@@ -1,0 +1,447 @@
+.hero {
+    min-height: 100vh;
+
+    padding-top: 160px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 0.8fr;
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+.status-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px 13px;
+
+    background: var(--pink-light);
+
+    border-radius: 50px;
+
+    color: var(--pink-dark);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    margin-bottom: 22px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #7cc89b;
+
+    animation: pulse 2s infinite;
+}
+
+.small-intro {
+    color: var(--brown-light);
+
+    font-size: 18px;
+}
+
+.hero h1 {
+    font-family: var(--font-heading);
+
+    font-size: clamp(70px, 10vw, 100px);
+
+    line-height: 0.95;
+
+    letter-spacing: -5px;
+
+    margin: 5px 0 15px;
+}
+
+.hero h1 .heart {
+    color: var(--pink);
+
+    font-size: 0.5em;
+
+    vertical-align: top;
+}
+
+.hero h2 {
+    font-family: var(--font-heading);
+
+    font-size: 23px;
+
+    margin-bottom: 25px;
+}
+
+.hero h2 span {
+    color: var(--pink-dark);
+}
+
+.hero-description {
+    max-width: 520px;
+
+    color: var(--brown-light);
+
+    font-size: 15px;
+}
+
+.hero-buttons {
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 32px;
+}
+
+.social-links {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 12px;
+}
+
+.social-links a {
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+
+    border: 1px solid var(--border);
+
+    border-radius: 50%;
+
+    font-size: 10px;
+    font-weight: 700;
+
+    color: var(--brown-light);
+
+    transition: 0.25s;
+}
+
+.social-links a:hover {
+    background: var(--pink-light);
+
+    color: var(--pink-dark);
+
+    transform: translateY(-3px);
+}
+
+.social-links a i {
+    font-size: 16px;
+}
+
+.hero-visual {
+    position: relative;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+.profile-card-wrapper {
+    position: relative;
+
+    width: 350px;
+    margin: 0 auto;
+
+    cursor: pointer;
+}
+
+.profile-card {
+    position: relative;
+
+    width: 350px;
+    padding: 18px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+    border-radius: 28px;
+
+    box-shadow:
+        0 25px 50px rgba(120, 80, 95, 0.15);
+
+    transform: rotate(3deg);
+
+    z-index: 3;
+
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+}
+
+.profile-card-back {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 350px;
+    height: 100%;
+
+    border-radius: 28px;
+
+    pointer-events: none;
+
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+}
+
+.back-pink {
+    background: var(--pink-light);
+
+    border: 1px solid #f3cbd8;
+
+    transform:
+        rotate(12deg);
+
+    box-shadow:
+        0 15px 30px rgba(120, 80, 95, 0.08);
+
+    z-index: 2;
+}
+
+.profile-card-wrapper:hover .profile-card {
+
+    transform:
+        rotate(0deg)
+        translateY(-8px);
+
+    box-shadow:
+        0 30px 60px rgba(120, 80, 95, 0.18);
+}
+
+
+.profile-card-wrapper:hover .back-pink {
+
+    transform:
+        translateX(14px)
+        rotate(13deg);
+
+    box-shadow:
+        0 18px 35px rgba(120, 80, 95, 0.10);
+}
+
+.card-top {
+    display: flex;
+
+    gap: 6px;
+
+    margin-bottom: 15px;
+}
+
+.window-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+}
+
+.window-dot.pink {
+    background: #e99bb5;
+}
+
+.window-dot.yellow {
+    background: #e8c77d;
+}
+
+.window-dot.green {
+    background: #8ac6a1;
+}
+
+.profile-picture {
+    height: 320px;
+
+    border-radius: 20px;
+
+    background:
+        radial-gradient(
+            circle at 30% 20%,
+            #fff 0 3px,
+            transparent 4px
+        ),
+        radial-gradient(
+            circle at 70% 40%,
+            #fff 0 2px,
+            transparent 3px
+        ),
+        linear-gradient(
+            145deg,
+            #f6d9e3,
+            #d9d0ed
+        );
+
+    display: grid;
+
+    place-items: center;
+
+    overflow: hidden;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: contcoverain;
+    border-radius: 20px;
+}
+
+.picture-placeholder {
+    text-align: center;
+
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.picture-placeholder span {
+    display: block;
+
+    font-size: 65px;
+}
+
+.picture-placeholder p {
+    font-size: 12px;
+}
+
+.profile-info {
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 20px
+}
+
+.profile-info h3 {
+    font-family: var(--font-heading);
+    color: var(--pink-dark);
+    font-size: 25px;
+}
+
+.profile-info p {
+    color: var(--brown-light);
+
+    font-size: 12px;
+}
+
+.mini-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+
+    margin-top: 12px;
+}
+
+.mini-tags span {
+    padding: 4px 9px;
+
+    border-radius: 20px;
+
+    background: var(--pink-light);
+
+    color: var(--pink-dark);
+
+    font-size: 9px;
+
+    font-weight: 700;
+}
+
+.card-footer {
+    border-top: 1px dashed var(--border);
+
+    padding: 15px 5px 3px;
+
+    color: var(--brown-light);
+
+    font-size: 10px;
+
+    text-align: center;
+}
+
+.footer-heart {
+    color: var(--pink);
+}
+
+.sparkle {
+    position: absolute;
+
+    color: var(--pink);
+
+    font-size: 25px;
+
+    animation:
+        float 4s ease-in-out infinite;
+}
+
+.sparkle-1 {
+    top: -25px;
+    right: 30px;
+}
+
+.sparkle-2 {
+    bottom: 20px;
+    left: 5px;
+}
+
+.sparkle-3 {
+    top: 50%;
+    right: -30px;
+}
+
+@media (max-width: 850px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        padding-top: 140px;
+
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
+    .hero-description {
+        margin: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+
+    .hero-visual {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .hero h1 {
+        font-size: 70px;
+
+        letter-spacing: -3px;
+    }
+
+    .hero h2 {
+        font-size: 22px;
+    }
+
+    .profile-card {
+        width: 100%;
+        max-width: 330px;
+    }
+
+    .back-pink {
+        display: none;
+    }
+
+    .profile-picture {
+        height: 250px;
+    }
+}
